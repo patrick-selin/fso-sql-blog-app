@@ -1,9 +1,19 @@
-CREATE TABLE test_table (
+-- 12.2
+CREATE TABLE blogs (
     id SERIAL PRIMARY KEY,
-    content text NOT NULL,
-    important boolean,
-    date time
+    author TEXT,
+    url TEXT NOT NULL,
+    title TEXT NOT NULL,
+    likes INTEGER DEFAULT 0
 );
 
-insert into test_table (content, important) values ('This is test text', true);
-insert into test_table (content, important) values ('Another text to test', false);
+INSERT INTO blogs (author, url, title, likes)
+VALUES ('Jukka Poika', 'https://www.huu.com/blog1', 'Eka Blog', 10);
+
+INSERT INTO blogs (author, url, title, likes)
+VALUES ('Jaana Tyyppi', 'https://www.yle.fi/blog2', 'Toka Blog', 5);
+
+INSERT INTO blogs (author, url, title, likes)
+VALUES ('Hello Man', 'https://www.yle.fi/blog3', 'Kolmas Blog', 34);
+
+-- 12.3
