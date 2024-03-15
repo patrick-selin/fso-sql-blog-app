@@ -8,6 +8,10 @@ services:
       - "3005:3005"
     depends_on:
       - database
+    
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules 
 
   database:
     container_name: postgresql_db
@@ -18,15 +22,15 @@ services:
     env_file:
       - .env
 
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    ports:
-      - "8080:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "pgadmin@example.com"
-      PGADMIN_DEFAULT_PASSWORD: "pgadmin"
-    restart: unless-stopped    
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: "pgadmin@example.com"
+  #     PGADMIN_DEFAULT_PASSWORD: "pgadmin"
+  #   restart: unless-stopped    
 
 volumes:
   postgres_data:

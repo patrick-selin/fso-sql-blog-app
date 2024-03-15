@@ -26,7 +26,9 @@
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.6.5",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.11.3",
+    "sequelize": "^6.37.1"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^1.6.1",
