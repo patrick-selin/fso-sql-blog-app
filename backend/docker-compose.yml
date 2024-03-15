@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: . 
+    ports:
+      - "3005:3005"
+    depends_on:
+      - database
+
+  database:
+    container_name: postgresql_db
+    image: postgres:16.2
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  
+    env_file:
+      - .env
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "pgadmin@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin"
+    restart: unless-stopped    
+
+volumes:
+  postgres_data:

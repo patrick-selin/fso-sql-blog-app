@@ -1,0 +1,78 @@
+GET http://localhost:3003
+###
+GET http://localhost:3003/api/blogs
+###
+GET http://localhost:3003/api/blogs/2
+###
+DELETE http://localhost:3003/api/blogs/65d31e1adcdd95a7adfe67de
+###
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "wrew4533Book Title Java",
+    "author": "33Author Is second",
+    "url": "33https://google.fi",
+    "likes": 48366456456,
+    "userId" : 2343,
+    "user":  {
+        "id": "65d07711638749939c77a06d",
+        "username": "john7777",
+        "name": "John Man",
+        "password": "secret8888"
+    }   
+}
+###
+PUT http://localhost:3003/api/blogs/65cf263c2e513f8b9e034125 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "8888Book Title Java",
+    "author": "3888Autuuhor Is second",
+    "url": "88https://uugoogle.fi",
+    "likes": 88
+}
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "aaaa",
+    "name": "Olen Aaa",
+    "password": "aaaa"
+}
+###
+GET http://localhost:3003/api/users
+
+###
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYWEiLCJpZCI6IjY1ZDQ5OTRkMDA5MTIzZTZlNzk1NjQ4NSIsImlhdCI6MTcwODQzMTkxMiwiZXhwIjoxNzA4NjQ3OTEyfQ.7wrzBRqvLhwvKy5YHj_lZrvax1i4jvzHEEtFOAvi_bA
+
+{
+        "title": "sthird title",
+        "author": "Heelo juujaa",
+        "url": "https://wwweom.com/new-blog22",
+        "likes": 88
+}
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+        "username": "rouva788",
+        "name": "Neiti Rouvala",
+        "password": "secret8888"
+}
+### login
+POST http://localhost:3003/api/login HTTP/1.1
+content-type: application/json
+
+{
+        "username": "aaaa",
+        "password": "aaaa"
+}
+###
+DELETE http://localhost:3003/api/blogs/65d4575bfc934e7aedb04d58 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvdXZhNzg4IiwiaWQiOiI2NWQzNGM5YzQ0ZjAyMmRmZmMzMThkOTIiLCJpYXQiOjE3MDg0MTk4MTMsImV4cCI6MTcwODQyMzQxM30.O71rEhYvMQ4Ug8Z42O6N4jTmX-yf27zXkyUpzCf8zGk
