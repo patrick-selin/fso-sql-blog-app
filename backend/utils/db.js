@@ -2,14 +2,11 @@ const Sequelize = require("sequelize");
 const { DATABASE_URL } = require("./config");
 
 const sequelize = new Sequelize(DATABASE_URL, {
-  dialect: "postgres", // Specify the dialect explicitly
-  host: "database", // Use the service name from docker-compose.yml
+  dialect: "postgres",
+  host: "database",
   port: 5432,
   dialectOptions: {
-    // ssl: {
-    //   require: true,
-    //   rejectUnauthorized: false,
-    // },
+    ssl: false
   },
 });
 const connectDatabase = async () => {
