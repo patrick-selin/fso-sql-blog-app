@@ -4,6 +4,7 @@ const blogsRouter = require("express").Router();
 // const jwt = require("jsonwebtoken");
 // const Blog = require("../models/blogPostModel");
 const Blog = require("../models/blogPostModelSQL");
+const { blogFinder } = require("../utils/middleware");
 // const User = require("../models/userModel");
 
 blogsRouter.get("/", async (req, res) => {
@@ -11,11 +12,9 @@ blogsRouter.get("/", async (req, res) => {
   res.json(blogs);
 });
 
-blogsRouter.get("/:id", async (req, res) => {
-  const blog = await Blog.findByPk(req.params.id);
-
-  if (blog) {
-    res.json(blog);
+blogsRouter.get("/:id", blogFinder, async (req, res) => {
+  if (req.blog) {
+    res.json(req.blog);
   } else {
     res.status(404).end();
   }
@@ -56,11 +55,9 @@ blogsRouter.post("/", async (req, res) => {
   // res.status(201).json(savedBlog.toJSON());
 });
 
-blogsRouter.delete("/:id", async (req, res) => {
-  const blog = await Blog.findByPk(req.params.id);
-
-  if (blog) {
-    await blog.destroy();
+blogsRouter.delete("/:id", blogFinder, async (req, res) => {
+  if (req.blog) {
+    await req.blog.destroy();
     res.status(204).end();
   } else {
     res.status(404).end();
@@ -93,11 +90,9 @@ blogsRouter.delete("/:id", async (req, res) => {
   // }
 });
 
-blogsRouter.put("/:id", async (req, res) => {
-  const blog = await Blog.findByPk(req.params.id);
-
-  if (blog) {
-    const updatedBlog = await blog.update({ likes: req.body.likes });
+blogsRouter.put("/:id", blogFinder, async (req, res) => {
+  if (req.blog) {
+    const updatedBlog = await req.blog.update({ likes: req.body.likes });
     res.json(updatedBlog);
   } else {
     res.status(404).end();

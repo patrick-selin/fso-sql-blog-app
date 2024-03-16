@@ -1,5 +1,6 @@
 const morgan = require("morgan");
 const User = require("../models/userModel");
+const Blog = require("../models/blogPostModelSQL");
 const logger = require("./logger");
 const jwt = require("jsonwebtoken");
 
@@ -59,6 +60,11 @@ const userExtractor = async (req, res, next) => {
   next();
 };
 
+const blogFinder = async (req, res, next) => {
+  req.note = await Blog.findByPk(req.params.id);
+  next();
+};
+
 module.exports = {
   requestLogger,
   unknownEndpoint,
@@ -66,4 +72,5 @@ module.exports = {
   morganLogs,
   tokenExtractor,
   userExtractor,
+  blogFinder,
 };
