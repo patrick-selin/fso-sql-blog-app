@@ -13,7 +13,6 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 const printBlogsCLI = async () => {
   try {
     await sequelize.authenticate();
-    console.log("Executing (default): SELECT * FROM blogs");
 
     const blogs = await sequelize.query("SELECT * FROM blogs", {
       type: QueryTypes.SELECT,

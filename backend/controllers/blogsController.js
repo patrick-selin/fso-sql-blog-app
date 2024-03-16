@@ -1,18 +1,19 @@
 // controller
-// eslint-disable-next-line no-unused-vars
-const config = require("../utils/config");
+
 const blogsRouter = require("express").Router();
 const jwt = require("jsonwebtoken");
-// eslint-disable-next-line no-unused-vars
-const middleware = require("../utils/middleware");
-const Blog = require("../models/blogPostModel");
-// eslint-disable-next-line no-unused-vars
+// const Blog = require("../models/blogPostModel");
+const Blog = require("../models/blogPostModelSQL");
 const User = require("../models/userModel");
 
 blogsRouter.get("/", async (req, res) => {
-  const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 });
+  // mongodb
+  // const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 });
+  // SQL
+  const blogs = await Blog.findAll();
   res.json(blogs);
 });
+
 // POST new blog
 blogsRouter.post("/", async (req, res) => {
   const body = req.body;
