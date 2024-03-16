@@ -8,7 +8,7 @@ export default defineConfig({
     host: true, // FYI: added this for cypress 
     proxy: {
       "/api": {
-        target: "http://localhost:3007",
+        target: "http://localhost:3005",
         changeOrigin: true,
       },
     },
