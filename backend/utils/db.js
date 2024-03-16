@@ -9,6 +9,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
     ssl: false
   },
 });
+
 const connectDatabase = async () => {
   try {
     await sequelize.authenticate();
