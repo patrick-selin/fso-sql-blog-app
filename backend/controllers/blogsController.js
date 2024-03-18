@@ -9,6 +9,8 @@ const { blogFinder } = require("../utils/middleware");
 
 blogsRouter.get("/", async (req, res) => {
   const blogs = await Blog.findAll();
+
+  console.log(JSON.stringify(blogs));
   res.json(blogs);
 });
 
