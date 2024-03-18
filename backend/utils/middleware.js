@@ -1,6 +1,6 @@
 const morgan = require("morgan");
 const User = require("../models/userModel");
-const Blog = require("../models/blogPostModelSQL");
+const Blog = require("../models/blog");
 const logger = require("./logger");
 const jwt = require("jsonwebtoken");
 
@@ -40,11 +40,9 @@ const errorHandler = (error, req, res, next) => {
   else if (error.name === "SequelizeValidationError") {
     const errors = error.errors.map((err) => err.message);
     return res.status(400).json({ error: errors });
-  }
-  else if (error.name === "SequelizeUniqueConstraintError") {
+  } else if (error.name === "SequelizeUniqueConstraintError") {
     return res.status(400).json({ error: "Resource already exists" });
-  }
-  else if (error.name === "SequelizeDatabaseError") {
+  } else if (error.name === "SequelizeDatabaseError") {
     return res.status(400).json({ error: "Database error" });
   }
   logger.error(error.message);

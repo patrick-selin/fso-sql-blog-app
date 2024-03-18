@@ -1,10 +1,7 @@
 const jwt = require("jsonwebtoken");
-// eslint-disable-next-line no-unused-vars
-const config = require("../utils/config");
 const bcryptjs = require("bcryptjs");
 const loginRouter = require("express").Router();
-// const User = require("../models/userModel");
-const User = require("../models/userModelSQL");
+const User = require("../models/user");
 
 const LONG_TIME = 60 * 60 * 600;
 
@@ -13,8 +10,8 @@ loginRouter.post("/", async (req, res) => {
 
   const user = await User.findOne({
     where: {
-      username: username
-    }
+      username: username,
+    },
   });
 
   const passwordCorrect =

@@ -1,8 +1,8 @@
-const Blog = require("../models/blogPostModelSQL");
-const User = require("../models/userModelSQL");
+const Blog = require("./blog");
+const User = require("./user");
 
 Blog.sync();
-User.sync({ force: true });
+User.sync();
 
 module.exports = {
   Blog,
