@@ -96,9 +96,8 @@ blogsRouter.put("/:id", blogFinder, async (req, res) => {
   if (req.blog) {
     const updatedBlog = await req.blog.update({ likes: req.body.likes });
     res.json(updatedBlog);
-  } else {
-    res.status(404).end();
   }
+  res.status(404).end();
 
   // mongoDB
   // const id = req.params.id;
