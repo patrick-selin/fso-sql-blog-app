@@ -24,6 +24,9 @@ const unknownEndpoint = (req, res) => {
 };
 
 const errorHandler = (error, req, res, next) => {
+  console.log(`Error msg: ${error.message}`);
+  console.log(`Error name: ${error.name}`);
+
   if (error.name === "CastError") {
     return res.status(400).send({ error: "malformatted id" });
   } else if (error.name === "ValidationError") {
@@ -33,7 +36,17 @@ const errorHandler = (error, req, res, next) => {
   } else if (error.name === "TokenExpiredError") {
     return res.status(401).json({ error: "expired token" });
   }
-
+  // SQL
+  else if (error.name === "SequelizeValidationError") {
+    const errors = error.errors.map((err) => err.message);
+    return res.status(400).json({ error: errors });
+  }
+  else if (error.name === "SequelizeUniqueConstraintError") {
+    return res.status(400).json({ error: "Resource already exists" });
+  }
+  else if (error.name === "SequelizeDatabaseError") {
+    return res.status(400).json({ error: "Database error" });
+  }
   logger.error(error.message);
 
   next(error);
