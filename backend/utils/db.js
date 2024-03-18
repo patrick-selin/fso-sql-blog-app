@@ -8,6 +8,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
   dialectOptions: {
     ssl: false
   },
+  logging: console.log
 });
 
 const connectDatabase = async () => {

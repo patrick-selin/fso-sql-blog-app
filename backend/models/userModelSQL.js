@@ -14,13 +14,18 @@ User.init(
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
+      validate: {
+        isEmail: {
+          msg: "Validation isEmail on username failed"
+        }
+      }
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     passwordHash: {
-      type: DataTypes.STRING(60),
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         is: /^\$2[ayb]\$[0-9]{2}\$[A-Za-z0-9./]{53}$/i,

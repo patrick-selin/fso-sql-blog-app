@@ -3,14 +3,20 @@ const jwt = require("jsonwebtoken");
 const config = require("../utils/config");
 const bcryptjs = require("bcryptjs");
 const loginRouter = require("express").Router();
-const User = require("../models/userModel");
+// const User = require("../models/userModel");
+const User = require("../models/userModelSQL");
 
-const ONE_HOUR = 60 * 60 * 60;
+const LONG_TIME = 60 * 60 * 600;
 
 loginRouter.post("/", async (req, res) => {
   const { username, password } = req.body;
 
-  const user = await User.findOne({ username });
+  const user = await User.findOne({
+    where: {
+      username: username
+    }
+  });
+
   const passwordCorrect =
     user === null ? false : bcryptjs.compare(password, user.passwordHash);
 
@@ -26,7 +32,7 @@ loginRouter.post("/", async (req, res) => {
   };
 
   const token = jwt.sign(userForToken, process.env.SECRET, {
-    expiresIn: ONE_HOUR,
+    expiresIn: LONG_TIME,
   });
 
   res.status(200).send({ token, username: user.username, name: user.name });
