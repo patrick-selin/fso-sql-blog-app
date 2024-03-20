@@ -1,16 +1,14 @@
 // controller
-
 const blogsRouter = require("express").Router();
-// const Blog = require("../models/blogPostModel");
 const { Blog, User } = require("../models");
 const { blogFinder } = require("../utils/middleware");
 
 blogsRouter.get("/", async (req, res) => {
   const blogs = await Blog.findAll({
-    attributes: { exclude: ['userId'] },
+    attributes: { exclude: ["userId"] },
     include: {
       model: User,
-      attributes: ['id', 'name', 'username'],
+      attributes: ["id", "name", "username"],
     },
   });
 
@@ -29,22 +27,20 @@ blogsRouter.get("/:id", blogFinder, async (req, res) => {
 // POST new blog
 //
 blogsRouter.post("/", async (req, res) => {
-  // console.log(`REG.TOKEN:::: ${JSON.stringify(req.token)}`);
-
   const user = await User.findByPk(req.decodedToken.id);
   // console.log(`USER is :::: ${user}`);
   const blog = await Blog.create({ ...req.body, userId: user.id });
-  // console.log(blog);
+
   return res.json(blog);
 });
 
 blogsRouter.delete("/:id", blogFinder, async (req, res) => {
   if (!req.blog) {
-    return res.status(404).send({ error: 'Blog not found' });
+    return res.status(404).send({ error: "Blog not found" });
   }
 
   if (req.blog.userId !== req.user.id) {
-    return res.status(401).send({ error: 'Unauthorized to delete this blog' });
+    return res.status(401).send({ error: "Unauthorized to delete this blog" });
   }
 
   await req.blog.destroy();

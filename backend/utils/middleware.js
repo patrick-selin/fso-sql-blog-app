@@ -56,21 +56,14 @@ const tokenExtractor = (req, res, next) => {
     req.token = authorization.replace("Bearer ", "");
     console.log(`AUTHH_reg.token: ${req.token}`); // OK
   }
-
   next();
 };
 
 const userExtractor = async (req, res, next) => {
   const token = req.token;
   if (token) {
-    // console.log(`this is token : ${JSON.stringify(token)}`); // OK
     req.decodedToken = jwt.verify(token, process.env.SECRET);
-    // console.log(`this is decodedToken : ${JSON.stringify(decodedToken)}`); // OK a@a.fi
-
-    // console.log(`USERUSERUSER ${user}`); // null
-    // if (!user) {
-    //   return res.status(401).json({ error: 'user disabled' });
-    // }
+    // console.log(`this is decodedToken : ${JSON.stringify(decodedToken)}`);
   }
 
   next();
@@ -78,6 +71,7 @@ const userExtractor = async (req, res, next) => {
 
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id);
+  
   next();
 };
 
