@@ -45,16 +45,16 @@ content-type: application/json
 ###
 GET http://localhost:3005/api/users
 
-###
+### POST new blog
 POST http://localhost:3005/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlhdCI6MTcxMDc3MTczNCwiZXhwIjoxNzEyOTMxNzM0fQ.IFl13PPV8mBl45CAYLRsn3BYnszqUlrP-j77F-oLWOQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTA5MTYyNjYsImV4cCI6MTcxMzA3NjI2Nn0.L2fZu91yyi1VpUcvzskvPzIEvU3fLnXjznvKruXva8Q
 
 {
-        "title": "sthird title",
-        "author": "Heelo juujaa",
+        "title": "huuh title",
+        "author": "JUKAKA juujaa",
         "url": "https://wwweom.com/new-blog22",
-        "likes": 88
+        "likes": 23
 }
 ### login
 POST http://localhost:3005/api/login HTTP/1.1

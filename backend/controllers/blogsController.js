@@ -1,16 +1,16 @@
 // controller
 
 const blogsRouter = require("express").Router();
-// const jwt = require("jsonwebtoken");
 // const Blog = require("../models/blogPostModel");
-const { Blog, User } = require('../models');
+const { Blog, User } = require("../models");
 const { blogFinder } = require("../utils/middleware");
-const { tokenExtractor } = require('../utils/middleware');
-
-
 
 blogsRouter.get("/", async (req, res) => {
-  const blogs = await Blog.findAll();
+  const blogs = await Blog.findAll({
+    include: {
+      model: User,
+    },
+  });
 
   console.log(JSON.stringify(blogs));
   res.json(blogs);
@@ -25,13 +25,13 @@ blogsRouter.get("/:id", blogFinder, async (req, res) => {
 });
 
 // POST new blog
+//
 blogsRouter.post("/", async (req, res) => {
-  console.log("huu");
-  const userFromToken = req.user;
-  console.log(`LOOOG:::: ${userFromToken}`);
-  console.log(`LOOOG-regtokoen:::: ${req.token.id}`);
-  const user = await User.findByPk(userFromToken);
-  const blog = await Blog.create({ ...req.body, userId: user.id });
+  console.log(`REG.TOKEN:::: ${JSON.stringify(req.token)}`);
+
+  const user = await User.findByPk(req.user.id);
+  console.log(`USER is :::: ${user}`);
+  const blog = await Blog.create({ ...req.body, userId: req.user.id });
   console.log(blog);
   return res.json(blog);
 });

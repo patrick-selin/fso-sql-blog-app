@@ -54,7 +54,7 @@ const tokenExtractor = (req, res, next) => {
   const authorization = req.get("authorization");
   if (authorization && authorization.startsWith("Bearer ")) {
     req.token = authorization.replace("Bearer ", "");
-    console.log(`AUTHH_reg.token: ${req.token}`);
+    console.log(`AUTHH_reg.token: ${req.token}`); // OK
   }
 
   next();
@@ -63,19 +63,19 @@ const tokenExtractor = (req, res, next) => {
 const userExtractor = async (req, res, next) => {
   const token = req.token;
   if (token) {
+    // console.log(`this is token : ${JSON.stringify(token)}`); // OK
     const decodedToken = jwt.verify(token, process.env.SECRET);
-    console.log(`this is decodedToken : ${JSON.stringify(decodedToken.username)}`);
-    const user = await User.findOne({
-      where: {
-        username: decodedToken.username,
-      },
-    });
-    console.log(`USERUSERUSER ${user}`);
-    if (!user) {
-      return res.status(401).json({ error: 'user disabled' });
-    }
+    // console.log(`this is decodedToken : ${JSON.stringify(decodedToken)}`); // OK a@a.fi
     req.user = decodedToken;
-
+    // const user = await User.findOne({
+    //   where: {
+    //     username: decodedToken.username,
+    //   },
+    // });
+    // console.log(`USERUSERUSER ${user}`); // null
+    // if (!user) {
+    //   return res.status(401).json({ error: 'user disabled' });
+    // }
   }
 
   next();
