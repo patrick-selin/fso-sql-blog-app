@@ -24,6 +24,7 @@ blogsRouter.get("/", async (req, res) => {
       model: User,
       attributes: ["id", "name", "username"],
     },
+    order: [["likes", "DESC"]],
     where,
   });
 
