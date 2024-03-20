@@ -33,9 +33,9 @@ Blog.init(
     modelName: "blog",
   }
 );
-(async () => {
-  await sequelize.sync({ force: true });
-  // Code here
-})();
+// (async () => {
+//   await sequelize.sync({ force: true });
+//   // Code here
+// })();
 
 module.exports = Blog;

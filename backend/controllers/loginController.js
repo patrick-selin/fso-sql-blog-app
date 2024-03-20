@@ -25,14 +25,17 @@ loginRouter.post("/", async (req, res) => {
 
   const userForToken = {
     username: user.username,
-    id: user._id,
+    id: user.id,
   };
 
   const token = jwt.sign(userForToken, process.env.SECRET, {
     expiresIn: LONG_TIME,
   });
 
-  res.status(200).send({ token, username: user.username, name: user.name });
+  // console.log(`CLG ====${JSON.stringify(token)}`);
+  res
+    .status(200)
+    .send({ token, username: user.username, name: user.name, id: user.id });
 });
 
 module.exports = loginRouter;

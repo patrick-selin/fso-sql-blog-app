@@ -3,9 +3,11 @@
 const blogsRouter = require("express").Router();
 // const jwt = require("jsonwebtoken");
 // const Blog = require("../models/blogPostModel");
-const Blog = require("../models/blog");
+const { Blog, User } = require('../models');
 const { blogFinder } = require("../utils/middleware");
-// const User = require("../models/userModel");
+const { tokenExtractor } = require('../utils/middleware');
+
+
 
 blogsRouter.get("/", async (req, res) => {
   const blogs = await Blog.findAll();
@@ -25,7 +27,11 @@ blogsRouter.get("/:id", blogFinder, async (req, res) => {
 // POST new blog
 blogsRouter.post("/", async (req, res) => {
   console.log("huu");
-  const blog = await Blog.create(req.body);
+  const userFromToken = req.user;
+  console.log(`LOOOG:::: ${userFromToken}`);
+  console.log(`LOOOG-regtokoen:::: ${req.token.id}`);
+  const user = await User.findByPk(userFromToken);
+  const blog = await Blog.create({ ...req.body, userId: user.id });
   console.log(blog);
   return res.json(blog);
 });

@@ -33,21 +33,22 @@ content-type: application/json
     "likes": 88
 }
 ###
-POST http://localhost:3003/api/users HTTP/1.1
+POST http://localhost:3005/api/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "aaaa",
+    "username": "a@a.fi",
     "name": "Olen Aaa",
     "password": "aaaa"
 }
-###
-GET http://localhost:3003/api/users
 
 ###
-POST http://localhost:3003/api/blogs HTTP/1.1
+GET http://localhost:3005/api/users
+
+###
+POST http://localhost:3005/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYWEiLCJpZCI6IjY1ZDQ5OTRkMDA5MTIzZTZlNzk1NjQ4NSIsImlhdCI6MTcwODQzMTkxMiwiZXhwIjoxNzA4NjQ3OTEyfQ.7wrzBRqvLhwvKy5YHj_lZrvax1i4jvzHEEtFOAvi_bA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlhdCI6MTcxMDc3MTczNCwiZXhwIjoxNzEyOTMxNzM0fQ.IFl13PPV8mBl45CAYLRsn3BYnszqUlrP-j77F-oLWOQ
 
 {
         "title": "sthird title",
@@ -55,24 +56,30 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhY
         "url": "https://wwweom.com/new-blog22",
         "likes": 88
 }
-###
-POST http://localhost:3003/api/users HTTP/1.1
-content-type: application/json
-
-{
-        "username": "rouva788",
-        "name": "Neiti Rouvala",
-        "password": "secret8888"
-}
 ### login
-POST http://localhost:3003/api/login HTTP/1.1
+POST http://localhost:3005/api/login HTTP/1.1
 content-type: application/json
 
 {
-        "username": "aaaa",
+        "username": "a@a.fi",
         "password": "aaaa"
 }
 ###
 DELETE http://localhost:3003/api/blogs/65d4575bfc934e7aedb04d58 HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvdXZhNzg4IiwiaWQiOiI2NWQzNGM5YzQ0ZjAyMmRmZmMzMThkOTIiLCJpYXQiOjE3MDg0MTk4MTMsImV4cCI6MTcwODQyMzQxM30.O71rEhYvMQ4Ug8Z42O6N4jTmX-yf27zXkyUpzCf8zGk
+
+
+
+
+
+
+###
+POST http://localhost:3005/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "b@b.fi",
+    "name": "Olen Bbb",
+    "password": "bbbb"
+}
