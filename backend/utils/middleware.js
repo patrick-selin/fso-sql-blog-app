@@ -64,14 +64,9 @@ const userExtractor = async (req, res, next) => {
   const token = req.token;
   if (token) {
     // console.log(`this is token : ${JSON.stringify(token)}`); // OK
-    const decodedToken = jwt.verify(token, process.env.SECRET);
+    req.decodedToken = jwt.verify(token, process.env.SECRET);
     // console.log(`this is decodedToken : ${JSON.stringify(decodedToken)}`); // OK a@a.fi
-    req.user = decodedToken;
-    // const user = await User.findOne({
-    //   where: {
-    //     username: decodedToken.username,
-    //   },
-    // });
+
     // console.log(`USERUSERUSER ${user}`); // null
     // if (!user) {
     //   return res.status(401).json({ error: 'user disabled' });

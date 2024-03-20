@@ -65,9 +65,9 @@ content-type: application/json
         "password": "aaaa"
 }
 ###
-DELETE http://localhost:3003/api/blogs/65d4575bfc934e7aedb04d58 HTTP/1.1
+DELETE http://localhost:3005/api/blogs/4 HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvdXZhNzg4IiwiaWQiOiI2NWQzNGM5YzQ0ZjAyMmRmZmMzMThkOTIiLCJpYXQiOjE3MDg0MTk4MTMsImV4cCI6MTcwODQyMzQxM30.O71rEhYvMQ4Ug8Z42O6N4jTmX-yf27zXkyUpzCf8zGk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTA5MTYyNjYsImV4cCI6MTcxMzA3NjI2Nn0.L2fZu91yyi1VpUcvzskvPzIEvU3fLnXjznvKruXva8Q
 
 
 
@@ -82,4 +82,13 @@ content-type: application/json
     "username": "b@b.fi",
     "name": "Olen Bbb",
     "password": "bbbb"
+}
+
+### login
+POST http://localhost:3005/api/login HTTP/1.1
+content-type: application/json
+
+{
+        "username": "b@bfi",
+        "password": "bbbb"
 }

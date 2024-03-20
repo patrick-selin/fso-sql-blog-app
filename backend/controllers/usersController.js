@@ -5,8 +5,10 @@ const Blog = require("../models/blog");
 
 usersRouter.get("/", async (req, res) => {
   const users = await User.findAll({
+    attributes: ['id', 'name', 'username'],
     include: {
       model: Blog,
+      attributes: { exclude: ['userId', 'createdAt', 'updatedAt'] },
     },
   });
   res.json(users);
