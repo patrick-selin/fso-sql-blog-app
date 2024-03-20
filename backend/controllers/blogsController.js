@@ -46,7 +46,8 @@ blogsRouter.post("/", async (req, res) => {
   const user = await User.findByPk(req.decodedToken.id);
   // console.log(`USER is :::: ${user}`);
   const blog = await Blog.create({ ...req.body, userId: user.id });
-
+  
+  console.log(`BLOG is :::: ${JSON.stringify(req.body)}`);
   return res.json(blog);
 });
 

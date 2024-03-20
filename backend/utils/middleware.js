@@ -63,7 +63,7 @@ const userExtractor = async (req, res, next) => {
   const token = req.token;
   if (token) {
     req.decodedToken = jwt.verify(token, process.env.SECRET);
-    // console.log(`this is decodedToken : ${JSON.stringify(decodedToken)}`);
+    // console.log(`this is decodedToken : ${ vdecodedToken)}`);
   }
 
   next();
@@ -71,7 +71,7 @@ const userExtractor = async (req, res, next) => {
 
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id);
-  
+
   next();
 };
 

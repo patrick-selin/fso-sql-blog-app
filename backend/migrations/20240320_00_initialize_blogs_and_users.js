@@ -29,6 +29,16 @@ module.exports = {
           min: 0,
         },
       },
+      created_at: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
+      updated_at: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
     });
     await queryInterface.createTable("users", {
       id: {
