@@ -52,7 +52,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAY
 
 {
         "title": "huuh title",
-        "author": "JUKAKA juujaa",
+        "author": "react juujaa",
         "url": "https://wwweom.com/new-blog22",
         "likes": 23
 }
