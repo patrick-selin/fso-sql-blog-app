@@ -8,6 +8,7 @@ require("express-async-errors");
 const blogsRouter = require("./controllers/blogsController");
 const usersRouter = require("./controllers/usersController");
 const loginRouter = require("./controllers/loginController");
+const authorsRouter = require("./controllers/authorsController");
 const middleware = require("./utils/middleware");
 const logger = require("./utils/logger");
 const mongoose = require("mongoose");
@@ -43,6 +44,7 @@ app.use(middleware.userExtractor);
 app.use("/api/blogs", middleware.userExtractor, blogsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/login", loginRouter);
+app.use("/api/authors", authorsRouter);
 //
 if (process.env.NODE_ENV === "test") {
   const testingRouter = require("./controllers/testingController");
