@@ -25,15 +25,26 @@ GET http://localhost:3005/api/users
 ### POST new blog
 POST http://localhost:3005/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYWEiLCJpZCI6IjY1ZTk3NjBhOTQ5NGU3YzBmMjdhMzBiMSIsImlhdCI6MTcwOTc5ODkzOSwiZXhwIjoxNzEwMDE0OTM5fQ.DDOG07KAky4wRGPZDoBVrnzwwsMynjh79rupAcnYXcI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTEwMTA2NjUsImV4cCI6MTcxMzE3MDY2NX0.JwfPYAsh3eLE2CVTsRK0nrsONnA4kCqcfD_UrhcWYMw
 
 {
-        "title": "neljas title",
-        "author": "sql juujaa",
+        "title": "vvv title",
+        "author": "ccc juujaa",
         "url": "https://wwweom.com/new-blog9",
-        "likes": 31,
+        "likes": 41,
         "year": 2024
 }
+
+### POST reading list
+POST http://localhost:3005/api/readinglists HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTEwMTA2NjUsImV4cCI6MTcxMzE3MDY2NX0.JwfPYAsh3eLE2CVTsRK0nrsONnA4kCqcfD_UrhcWYMw
+
+{
+    "blogId": 7,
+    "userId": 1
+}
+
 ### login
 POST http://localhost:3005/api/login HTTP/1.1
 content-type: application/json
