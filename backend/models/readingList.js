@@ -35,7 +35,7 @@ ReadingList.init(
     defaultScope: {
       attributes: { exclude: ["createdAt", "updatedAt"] },
     },
-    modelName: "readingList",
+    modelName: "reading_list",
   }
 );
 

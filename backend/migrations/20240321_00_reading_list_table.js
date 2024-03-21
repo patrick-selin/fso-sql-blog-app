@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
         references: { model: "blogs", key: "id" },
       },
-      isRead: {
+      is_read: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: async ({ context: queryInterface }) => {
-    await queryInterface.dropTable("reading_list");
+    await queryInterface.dropTable("reading_lists");
   },
 };
