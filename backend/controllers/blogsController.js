@@ -46,17 +46,18 @@ blogsRouter.post("/", async (req, res) => {
   const user = await User.findByPk(req.decodedToken.id);
   // console.log(`USER is :::: ${user}`);
   const blog = await Blog.create({ ...req.body, userId: user.id });
-  
+
   console.log(`BLOG is :::: ${JSON.stringify(req.body)}`);
   return res.json(blog);
 });
 
 blogsRouter.delete("/:id", blogFinder, async (req, res) => {
+  console.log(`huu is :::: ${JSON.stringify(req.blog)}`);
   if (!req.blog) {
     return res.status(404).send({ error: "Blog not found" });
   }
 
-  if (req.blog.userId !== req.user.id) {
+  if (req.blog.userId !== req.decodedToken.id) {
     return res.status(401).send({ error: "Unauthorized to delete this blog" });
   }
 
