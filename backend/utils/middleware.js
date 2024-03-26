@@ -60,10 +60,9 @@ const tokenExtractor = (req, res, next) => {
 };
 
 const userExtractor = async (req, res, next) => {
-  const token = req.token;
-  if (token) {
-    req.decodedToken = jwt.verify(token, process.env.SECRET);
-    // console.log(`this is decodedToken : ${ vdecodedToken)}`);
+  if (req.user && req.user.id) {
+    const userId = req.user.id;
+    req.user = await User.findByPk(userId);
   }
 
   next();

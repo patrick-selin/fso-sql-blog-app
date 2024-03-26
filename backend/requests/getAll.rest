@@ -90,3 +90,8 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTEwMTA2NjUsImV4cCI6MTcxMzE3MDY2NX0.JwfPYAsh3eLE2CVTsRK0nrsONnA4kCqcfD_UrhcWYMw
 
 { "isRead": true }
+
+###
+DELETE http://localhost:3005/api/logout HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJAYi5maSIsImlkIjoyLCJpYXQiOjE3MTE0NDMyOTUsImV4cCI6MTcxMzYwMzI5NX0.KxHWBn71_uUX0mJundlu5IQ1RHQHiZidz1y60tQ4dK4
