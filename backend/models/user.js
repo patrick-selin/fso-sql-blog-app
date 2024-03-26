@@ -16,9 +16,9 @@ User.init(
       allowNull: false,
       validate: {
         isEmail: {
-          msg: "Validation isEmail on username failed"
-        }
-      }
+          msg: "Validation isEmail on username failed",
+        },
+      },
     },
     name: {
       type: DataTypes.STRING,
@@ -30,6 +30,11 @@ User.init(
       validate: {
         is: /^\$2[ayb]\$[0-9]{2}\$[A-Za-z0-9./]{53}$/i,
       },
+    },
+    disabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
