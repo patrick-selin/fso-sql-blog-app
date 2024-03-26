@@ -25,7 +25,7 @@ GET http://localhost:3005/api/users
 ### POST new blog
 POST http://localhost:3005/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTEwMTA2NjUsImV4cCI6MTcxMzE3MDY2NX0.JwfPYAsh3eLE2CVTsRK0nrsONnA4kCqcfD_UrhcWYMw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTE0NDMxMjYsImV4cCI6MTcxMzYwMzEyNn0.5G4xtF8fqwRBqFXQoktLvNnFQD4R9NxuOcHtV6jdwJI
 
 {
         "title": "vvv title",
@@ -78,7 +78,7 @@ POST http://localhost:3005/api/login HTTP/1.1
 content-type: application/json
 
 {
-        "username": "b@bfi",
+        "username": "b@b.fi",
         "password": "bbbb"
 }
 
