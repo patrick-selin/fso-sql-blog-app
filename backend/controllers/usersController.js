@@ -2,6 +2,7 @@ const bcryptjs = require("bcryptjs");
 const usersRouter = require("express").Router();
 const User = require("../models/user");
 const Blog = require("../models/blog");
+const ReadingList = require("../models/readinList");
 
 usersRouter.get("/", async (req, res) => {
   const users = await User.findAll({
@@ -24,10 +25,11 @@ usersRouter.get("/:id", async (req, res) => {
         model: Blog,
         as: "readings",
         attributes: {
-          exclude: ["userId"],
+          exclude: ["userId", "createdAt", "updatedAt"],
         },
         through: {
-          attributes: { exclude: ["userId", "blogId, createdAt, updateddAt"] },
+          as: 'reading_list',
+          attributes: { exclude: ["userId", "blogId, createdAt, updatedAt"] },
         },
       },
     ],
