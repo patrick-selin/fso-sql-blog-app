@@ -8,5 +8,11 @@ readingListsRouter.post("/", async (req, res) => {
   return res.status(200).send(readingList);
 });
 
-module.exports = readingListsRouter;
+readingListsRouter.put("/:id", async (req, res) => {
+  const readingList = await ReadingList.findByPk(req.params.id);
+  console.log(`this is huu ::  ${JSON.stringify(req.body.isRead)}`);
+  await readingList.update({ isRead: req.body.isRead });
+  res.json(readingList);
+});
 
+module.exports = readingListsRouter;

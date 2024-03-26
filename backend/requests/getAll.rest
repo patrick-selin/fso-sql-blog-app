@@ -81,3 +81,12 @@ content-type: application/json
         "username": "b@bfi",
         "password": "bbbb"
 }
+
+
+
+###
+PUT http://localhost:3005/api/readinglists/3 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYS5maSIsImlkIjoxLCJpYXQiOjE3MTEwMTA2NjUsImV4cCI6MTcxMzE3MDY2NX0.JwfPYAsh3eLE2CVTsRK0nrsONnA4kCqcfD_UrhcWYMw
+
+{ "isRead": true }

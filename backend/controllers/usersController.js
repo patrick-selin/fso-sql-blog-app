@@ -2,7 +2,7 @@ const bcryptjs = require("bcryptjs");
 const usersRouter = require("express").Router();
 const User = require("../models/user");
 const Blog = require("../models/blog");
-const ReadingList = require("../models/readinList");
+const ReadingList = require("../models/readingList");
 
 usersRouter.get("/", async (req, res) => {
   const users = await User.findAll({
