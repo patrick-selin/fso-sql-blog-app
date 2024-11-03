@@ -4,9 +4,9 @@ A full-stack blog application built with Express, Sequelize, and PostgreSQL on t
 
 ### Prerequisites
 
-Docker and Docker Compose (for development environment setup)
-Node.js (v16 or higher recommended for local non-Docker development)
-PostgreSQL Database (configured via Docker Compose)
+* Docker and Docker Compose (for development environment setup)
+* Node.js (v16 or higher recommended for local non-Docker development)
+* PostgreSQL Database (configured via Docker Compose)
 
 ### Getting Started
 1. Clone the Repository
@@ -27,76 +27,72 @@ Set up environment variables for backend and database configurations.
   ```
 
 3. Running the App in Development Mode with Docker
-
 To spin up the backend server, database, and frontend in a Dockerized environment, use Docker Compose.
 
 ```bash
 docker-compose up --build
 ```
-This command will:
 
-Build and start the backend server on http://localhost:3005
-Start the PostgreSQL database
-Volume mount your source code so changes are instantly reflected
+ This command will:
+* Build and start the backend server on http://localhost:3005
+* Start the PostgreSQL database
+* Volume mount your source code so changes are instantly reflected
 
 4. Running the Frontend Locally
 If you'd like to run the frontend locally outside of Docker:
 
-Open a new terminal window and navigate to the frontend directory:
+	Open a new terminal window and navigate to the frontend directory:
 
  ```bash
 	cd frontend
 ```
-Install dependencies and start the development server:
+	Install dependencies and start the development server:
 
-```bash
-    npm install
-    npm run dev
-```
+	```bash
+		npm install
+		npm run dev
+	```
 The frontend should now be running at http://localhost:5173.
 
-Additional Scripts
+#### Additional Scripts
 Backend (from root directory)
 
-Development: Start the backend with hot-reloading
+* Development: Start the backend with hot-reloading
 ```bash
 	npm run dev
 ```
-Database Migration Rollback:
-
+* Database Migration Rollback:
 ```bash
 	npm run migration:down
 ```
-Linting: Check code for style issues
-
+* Linting: Check code for style issues
 ```bash
-npm run lint
+	npm run lint
 ```
-Testing: Run Jest tests
-
+* Testing: Run Jest tests
 ```bash
-npm run test
+	npm run test
 ```
-Deploy: Deploy to Fly.io (after building the frontend)
+* Deploy: Deploy to Fly.io (after building the frontend)
 ```bash
    npm run deploy:full
 ```
+
 Frontend (from frontend directory)
 
-Build: Build the frontend for production
-
+* Build: Build the frontend for production
 ```bash
-npm run build
+	npm run build
 ```
-Preview: Preview the production build locally
-
+* Preview: Preview the production build locally
 ```bash
 npm run preview
 ```
-E2E Testing: Open Cypress for end-to-end tests
+* E2E Testing: Open Cypress for end-to-end tests
 ```bash
 npm run cypress:open
 ```
+
 ### Tech Stack:
 
 Backend: Node.js, Express, Sequelize, PostgreSQL
