@@ -48,8 +48,8 @@ If you'd like to run the frontend locally outside of Docker:
 ```
 	Install dependencies and start the development server:
 ```bash
-		npm install
-		npm run dev
+npm install
+npm run dev
 ```
 The frontend should now be running at http://localhost:5173.
 
