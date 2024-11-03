@@ -24,7 +24,7 @@ Set up environment variables for backend and database configurations.
     POSTGRES_USER=your_db_user
     POSTGRES_PASSWORD=your_db_password
     POSTGRES_DB=your_db_name
-  ```
+```
 
 3. Running the App in Development Mode with Docker
 To spin up the backend server, database, and frontend in a Dockerized environment, use Docker Compose.
